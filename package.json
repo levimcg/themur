@@ -1,0 +1,14 @@
+{
+  "name": "theme-switcher",
+  "version": "0.1.0",
+  "description": "A vanialla JavaScript theme switcher",
+  "main": "index.js",
+  "scripts": {
+    "start": "npx serve src/"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "serve": "^10.1.1"
+  }
+}
