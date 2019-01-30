@@ -1,4 +1,4 @@
-export default class ThemeSwitcher {
+export default class Themur {
   constructor(options) {
     // Set up a default options object
     const defaults = {
@@ -8,7 +8,9 @@ export default class ThemeSwitcher {
       useLocalStorage: false
     };
 
-    // Merge the defaults and any user settings
+    /**
+     * Merge the defaults and any user settings
+     */
     const settings = Object.assign({}, defaults, options);
 
     this.containerElement = settings.containerElement;
@@ -48,13 +50,20 @@ export default class ThemeSwitcher {
     this.updateDOM = this.updateDOM.bind(this);
 
     // Attach event listeners
-    this.toggleElement.addEventListener('click', this.handleClick, false);
+    this
+      .toggleElement
+      .addEventListener('click', this.handleClick, false);
   }
 
   setUpInitialState() {
     // Add ARIA semantics and role to toggle element if JS is available
-    this.toggleElement.setAttribute('aria-checked', this.themeIsEnabled);
-    this.toggleElement.setAttribute('role', 'switch');
+    this
+      .toggleElement
+      .setAttribute('aria-checked', this.themeIsEnabled);
+      
+    this
+      .toggleElement
+      .setAttribute('role', 'switch');
 
     if (this.themeIsEnabled === 'true') {
       this.containerElement.classList.add(this.themeClass);
@@ -89,13 +98,16 @@ export default class ThemeSwitcher {
 
   handleClick() {
     if (this.useLocalStorage) {
-      localStorage.getItem(this.storageKey) === 'false'
-        ? this.enableTheme()
-        : this.disableTheme();
+      localStorage.getItem(this.storageKey) === 'false' ?
+        this.enableTheme() :
+        this.disableTheme();
     } else {
-      const isEnabled = this.toggleElement.getAttribute('aria-checked');
+      const isEnabled =
+        this.toggleElement.getAttribute('aria-checked');
 
-      isEnabled === 'true' ? this.disableTheme() : this.enableTheme();
+      isEnabled === 'true' ?
+        this.disableTheme() :
+        this.enableTheme();
     }
   }
 }

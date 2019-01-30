@@ -5,13 +5,13 @@ module.exports = {
   input: 'src/index.js',
   output: [
     {
-      file: 'dist/theme-switcher.umd.js',
-      name: 'ThemeSwitcher',
+      file: 'dist/themur.umd.js',
+      name: 'Themur',
       format: 'umd'
     },
     {
-      file: 'dist/theme-switcher.esm.js',
-      name: 'ThemeSwitcher',
+      file: 'dist/themur.esm.js',
+      name: 'Themur',
       format: 'esm'
     },
   ],
