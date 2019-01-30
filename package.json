@@ -6,13 +6,15 @@
   "scripts": {
     "start": "npx serve dist/",
     "clean": "rm dist/themur.esm.js dist/themur.umd.js",
-    "build": "npm run clean && npx rollup --config"
+    "build": "npm run clean && npx rollup --config",
+    "deploy": "npm run build && npx gh-pages -d dist"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.2.3",
+    "gh-pages": "^2.0.1",
     "rollup": "^1.1.0",
     "rollup-plugin-babel": "^4.3.0",
     "rollup-plugin-node-resolve": "^4.0.0",
