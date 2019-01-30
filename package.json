@@ -1,12 +1,12 @@
 {
-  "name": "theme-switcher",
+  "name": "themur",
   "version": "0.1.0",
   "description": "A vanialla JavaScript theme switcher",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "start": "npx serve dist/",
-    "clean": "rm dist/theme-switcher.esm.js dist/theme-switcher.umd.js",
-    "build": "npx rollup --config"
+    "clean": "rm dist/themur.esm.js dist/themur.umd.js",
+    "build": "npm run clean && npx rollup --config"
   },
   "author": "",
   "license": "MIT",
