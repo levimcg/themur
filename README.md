@@ -1,11 +1,29 @@
 # Themur.js
 A lightweight vanilla JS theme switcher with support for localStorage
 
-[Demo](https://levimcg.github.io/themur/)
+[**Demo**](https://levimcg.github.io/themur/)
 
-## Example usage
-The Themur instance requires only one option, `toggleElement`. The `toggleElement` should be an button element that will be used to switch themes.
+## Usage
+The `Themur` instance takes one argument, an `Object` with the following options:
 
+- `toggleElement`: `HTMLButtonElement` | _**required**_
+- `containerElement`: `HTMLElement` | default: `document.body`,
+- `themeClass`: `String` | default: `my-theme`,
+- `storageKey`: `String` | default: 'themeEnabled',
+- `useLocalStorage`: `Boolean` | default: `false`
+
+### About using localStorage
+Themur comes with an configuration option that allows you to use the browser's [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) API to persist theme selection. When the `useLocalStorage` option is set to `true` Themur will save users' theme choice in `localStorage` persiting their theme choice for your site from page view to page view, and even visit to visit.
+
+## Example
+The Themur instance requires only one option, `toggleElement`. The `toggleElement` should be an button element that will be used to switch themes. The rest of the options default to the ones listed above.
+
+### 1. Add the HTML to your page:
+```html
+<button id="theme-switcher">Select theme</button>
+```
+
+### 2. Create a new instance of Themur with your options:
 ```js
 const theme = new Themur({
   toggleElement: document.getElementById('theme-switcher'),
@@ -13,3 +31,23 @@ const theme = new Themur({
   useLocalStorage: true
 });
 ```
+
+By default Themur will use `document.body` to add/remove a CSS class that you can use as a hook to specify styles for your alternate theme. In [this demo](https://levimcg.github.io/themur/), I'm using [CSS Custom Properties](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables) to easily update the styles for the "Dark theme" specified in the configuration above.
+
+```css
+:root {
+  --color-bg: #ffffff;
+  --color-text: #2c2e3d;
+}
+
+.dark-theme {
+  --color-bg: #2c2e3d;
+  --color-text: #ffffff;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-text);
+}
+```
+
