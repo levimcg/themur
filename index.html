@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Themur - demo</title>
+  <style>
+    body {
+      background-color: white;
+      color: #333333;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      padding: 4rem;
+    }
+
+    .dark-theme {
+      background-color: black;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <h1>Theme Switcher!</h1>
+
+  <button id="theme-switcher">Switch</button>
+
+  <script src="./themur.umd.js"></script>
+  
+  <script>
+    const theme = new Themur({
+      toggleElement: document.getElementById('theme-switcher'),
+      themeClass: 'dark-theme',
+      useLocalStorage: true
+    });
+  </script>
+</body>
+</html>
