@@ -3,7 +3,26 @@ A lightweight vanilla JS theme switcher with support for localStorage
 
 [**Demo**](https://levimcg.github.io/themur/)
 
-## Usage
+
+## Getting started
+The easiest way to use Themur is to include it in a `<script>` tag on your site via the [jsDelivr CDN](https://cdn.jsdelivr.net/npm/themur@0.1.1/dist/themur.umd.js):
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/themur@0.1.1/dist/themur.umd.js"></script>
+```
+
+### Using as a module
+If you are using a module bundling system like [Webpack](https://webpack.js.org/), Themur is also available as an ES6 module you can include in your project. After you've added Themur as a dependency to your project using [npm](https://www.npmjs.com/) you can then `import` it into your project like any other module:
+
+```js
+import Themur from 'themur';
+
+const themeSwitcher = new Themur({
+  /* options */
+});
+```
+
+## Options
 The `Themur` instance takes one argument, an `Object` with the following options:
 
 - `toggleElement`: `HTMLButtonElement` | _**required**_
