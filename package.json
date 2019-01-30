@@ -4,7 +4,7 @@
   "description": "A vanialla JavaScript theme switcher",
   "main": "index.js",
   "scripts": {
-    "start": "npx serve src/",
+    "start": "npx serve dist/",
     "clean": "rm dist/theme-switcher.esm.js dist/theme-switcher.umd.js",
     "build": "npx rollup --config"
   },
