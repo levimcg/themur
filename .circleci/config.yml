@@ -36,6 +36,9 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/themur
+      - add_ssh_keys:
+          fingerprints:
+            - "39:e2:d7:dd:98:f7:38:23:02:2a:03:3c:ea:52:f0:c3"
       - run:
           name: Deploy to gh-pages
           command: |
