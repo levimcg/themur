@@ -38,7 +38,10 @@ jobs:
           at: ~/themur
       - run:
           name: Deploy to gh-pages
-          command: npm run deploy
+          command: |
+            git config --global user.email "levimcg@gmail.com"
+            git config --global user.name "levimcg"
+            npm run deploy
 
 workflows:
   version: 2
