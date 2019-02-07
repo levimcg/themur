@@ -17,7 +17,7 @@ jobs:
           - v1-dependencies-
       - run:
           name: Installing dependencies
-          comman: npm install
+          command: npm install
       - run:
           name: Build files
           command: npm run build
