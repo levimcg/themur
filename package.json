@@ -14,7 +14,7 @@
     "start": "npx serve dist/",
     "clean": "rm dist/themur.esm.js dist/themur.umd.js",
     "build": "npm run clean && npx rollup --config",
-    "deploy": "npm run build && npx gh-pages -d dist"
+    "deploy": "npx gh-pages -d dist"
   },
   "author": "Levi McGranahan",
   "license": "MIT",
