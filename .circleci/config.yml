@@ -31,5 +31,5 @@ jobs:
           key: v1-dependencies-{{ checksum "package.json" }}
 
       - persist_to_workspace:
-          root: ~/repo
+          root: ~/themur
           paths: .
