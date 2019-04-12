@@ -2,6 +2,9 @@
   "name": "themur",
   "version": "0.1.2",
   "description": "A vanilla JavaScript theme switcher",
+  "main": "dist/themur.umd.js",
+  "module": "dist/themur.esm.js",
+  "browser": "dist/themur.min.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/levimcg/themur"
@@ -9,12 +12,12 @@
   "bugs": {
     "url": "https://github.com/levimcg/themur/issues"
   },
-  "main": "src/index.js",
   "scripts": {
-    "start": "npx serve docs/",
-    "clean": "rm dist/themur.esm.js dist/themur.umd.js",
-    "build": "npm run clean && npx rollup --config",
-    "deploy": "npx gh-pages -d dist"
+    "start": "npx rollup --config -w",
+    "clean": "rm -rf dist/",
+    "build": "npm run clean && npx rollup --config && npm run minify",
+    "deploy": "npx gh-pages -d dist",
+    "minify": "uglifyjs dist/themur.min.js -o dist/themur.min.js -m -c --comments /@version/"
   },
   "author": "Levi McGranahan",
   "license": "MIT",
@@ -25,6 +28,7 @@
     "rollup": "^1.1.0",
     "rollup-plugin-babel": "^4.3.0",
     "rollup-plugin-node-resolve": "^4.0.0",
-    "serve": "^10.1.1"
+    "serve": "^10.1.1",
+    "uglify-js": "^3.5.4"
   }
 }
