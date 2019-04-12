@@ -1,3 +1,9 @@
+/*!
+ * themur - @version 0.1.2
+ * Copyright (C) 2019 Levi McGranahan
+ * MIT License
+ */ 
+
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
     throw new TypeError("Cannot call a class as a function");

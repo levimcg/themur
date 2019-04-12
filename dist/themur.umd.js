@@ -1,3 +1,9 @@
+/*!
+ * themur - @version 0.1.2
+ * Copyright (C) 2019 Levi McGranahan
+ * MIT License
+ */ 
+
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
