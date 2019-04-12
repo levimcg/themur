@@ -16,7 +16,7 @@
     "start": "npx rollup --config -w",
     "clean": "rm -rf dist/",
     "build": "npm run clean && npx rollup --config && npm run minify",
-    "deploy": "npx gh-pages -d dist",
+    "deploy": "npx gh-pages -d docs",
     "minify": "uglifyjs dist/themur.min.js -o dist/themur.min.js -m -c --comments /@version/"
   },
   "author": "Levi McGranahan",
