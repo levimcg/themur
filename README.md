@@ -3,12 +3,11 @@ A lightweight vanilla JS theme switcher with support for localStorage
 
 [**Demo**](https://levimcg.github.io/themur/)
 
-
 ## Getting started
 The easiest way to use Themur is to include it in a `<script>` tag on your site via the [jsDelivr CDN](https://cdn.jsdelivr.net/npm/themur@0.2.0/dist/themur.min.js):
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/themur@0.2.0/dist/themur.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/themur@0.2.0/dist/themur.min.js"></script>
 ```
 
 ### Using as a module
@@ -31,8 +30,28 @@ The `Themur` instance takes one argument, an `Object` with the following options
 - `storageKey`: `String` | default: 'themeEnabled',
 - `useLocalStorage`: `Boolean` | default: `false`
 
+## API Methods
+There are a couple of methods available on the Themur instance that you can use programmatically in your own scripts if needed.
+
+- `enableTheme()` - Enables the theme. This will add the `themeClass` to the `containerElement` and set the `storageKey` to `"true"` if have the `useLocalStorage` set to `true`.
+- `disableTheme()` - disables the theme. This will remove the `themeClass` from the `containerElement` and set the `storageKey` to `"false"` if have the `useLocalStorage` set to `true`.
+
+### API usage
+```javascript
+// Create a new Themur instance.
+const switcher = new Themur({
+  // Options...
+});
+
+// Later in your script programmatically activate your theme.
+switcher.enableTheme(); 
+
+// Later in your script deactivate your theme.
+switcher.disableTheme(); 
+```
+
 ### About using localStorage
-Themur comes with an configuration option that allows you to use the browser's [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) API to persist theme selection. When the `useLocalStorage` option is set to `true` Themur will save users' theme choice in `localStorage` persiting their theme choice for your site from page view to page view, and even visit to visit.
+Themur comes with an configuration option that allows you to use the browser's [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) API to persist theme selection. When the `useLocalStorage` option is set to `true` Themur will save users' theme choice in `localStorage` persisting their theme choice for your site from page view to page view, and even visit to visit.
 
 ## Example
 The Themur instance requires only one option, `toggleElement`. The `toggleElement` should be an button element that will be used to switch themes. The rest of the options default to the ones listed above.
@@ -69,4 +88,3 @@ body {
   color: var(--color-text);
 }
 ```
-
