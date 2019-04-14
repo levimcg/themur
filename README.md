@@ -7,7 +7,7 @@ A lightweight vanilla JS theme switcher with support for localStorage
 The easiest way to use Themur is to include it in a `<script>` tag on your site via the [jsDelivr CDN](https://cdn.jsdelivr.net/npm/themur@0.2.0/dist/themur.min.js):
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/themur@0.2.1/dist/themur.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/themur@latest/dist/themur.min.js"></script>
 ```
 
 ### Using as a module
