@@ -1,6 +1,6 @@
 {
   "name": "themur",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "A vanilla JavaScript theme switcher",
   "main": "dist/themur.umd.js",
   "module": "dist/themur.esm.js",
