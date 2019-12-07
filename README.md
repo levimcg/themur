@@ -1,5 +1,5 @@
 # Themur.js
-A lightweight vanilla JS theme switcher with support for localStorage
+A lightweight vanilla JS theme switcher with support for `localStorage` and the `prefers-color-scheme` media query.
 
 [**Demo**](https://levimcg.github.io/themur/)
 
