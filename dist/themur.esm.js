@@ -85,8 +85,9 @@ function () {
     key: "setUpInitialState",
     value: function setUpInitialState() {
       // Add ARIA semantics and role to toggle element if JS is available
-      this.toggleElement.setAttribute('aria-checked', this.themeIsEnabled);
-      this.toggleElement.setAttribute('role', 'switch');
+      this.toggleElement.setAttribute('aria-pressed', this.themeIsEnabled);
+      console.log('remove');
+      this.toggleElement.removeAttribute('hidden');
 
       if (this.themeIsEnabled === 'true') {
         this.containerElement.classList.add(this.themeClass);
@@ -96,7 +97,7 @@ function () {
     key: "updateDOM",
     value: function updateDOM(newValue) {
       // Update the value of the aria-checked
-      this.toggleElement.setAttribute('aria-checked', newValue); // Toggle the theme class on the container element
+      this.toggleElement.setAttribute('aria-pressed', newValue); // Toggle the theme class on the container element
 
       this.containerElement.classList.toggle(this.themeClass);
     }

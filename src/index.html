@@ -83,13 +83,13 @@
     
     <h2>Demo</h2>
     <div class="demo">
-      <button id="theme-switcher">Switch theme</button>
+      <button id="theme-switcher" hidden>Switch theme</button>
     </div>
   </main>
 
-  <script src="https://cdn.jsdelivr.net/npm/themur@0.2.1/dist/themur.min.js"></script>
-  
-  <script>
+  <script type="module">
+    import Themur from './index.js';
+    
     const theme = new Themur({
       toggleElement: document.getElementById('theme-switcher'),
       themeClass: 'dark-theme',

@@ -11,7 +11,10 @@ export default class Themur {
     /**
      * Merge the defaults and any user settings
      */
-    const settings = Object.assign({}, defaults, options);
+    const settings = {
+      ...defaults,
+      ...options
+    };
 
     this.containerElement = settings.containerElement;
     this.toggleElement = settings.toggleElement;
@@ -57,13 +60,8 @@ export default class Themur {
 
   setUpInitialState() {
     // Add ARIA semantics and role to toggle element if JS is available
-    this
-      .toggleElement
-      .setAttribute('aria-checked', this.themeIsEnabled);
-      
-    this
-      .toggleElement
-      .setAttribute('role', 'switch');
+    this.toggleElement.setAttribute('aria-pressed', this.themeIsEnabled);
+    this.toggleElement.removeAttribute('hidden');
 
     if (this.themeIsEnabled === 'true') {
       this.containerElement.classList.add(this.themeClass);
@@ -72,7 +70,7 @@ export default class Themur {
 
   updateDOM(newValue) {
     // Update the value of the aria-checked
-    this.toggleElement.setAttribute('aria-checked', newValue);
+    this.toggleElement.setAttribute('aria-pressed', newValue);
 
     // Toggle the theme class on the container element
     this.containerElement.classList.toggle(this.themeClass);
