@@ -4,10 +4,18 @@ A lightweight vanilla JS theme switcher with support for localStorage
 [**Demo**](https://levimcg.github.io/themur/)
 
 ## Getting started
-The easiest way to use Themur is to include it in a `<script>` tag on your site via the [jsDelivr CDN](https://cdn.jsdelivr.net/npm/themur@0.2.0/dist/themur.min.js):
+The easiest way to use Themur is to include it in a `<script>` tag on your site via the [jsDelivr CDN](https://cdn.jsdelivr.net/npm/themur@latest/dist/themur.min.js):
 
 ```html
 <script src="https://cdn.jsdelivr.net/npm/themur@latest/dist/themur.min.js"></script>
+```
+
+Then add a `button` element to you page that will be used to control toggling themes.
+
+🚨 It's important to note the `hidden` attribute here. Themur will remove this attribute so that the button is visible as long as JavaScript is available. In the event that JavaScript isn't available the button will be hidden since Themur would no longer function anyway.
+
+```html
+<button id="my-theme-toggle" hidden>
 ```
 
 ### Using as a module

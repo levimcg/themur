@@ -28,6 +28,12 @@ module.exports = {
       file: pkg.browser,
       name: 'Themur',
       format: 'iife'
+    },
+    {
+      banner,
+      file: `demo/${pkg.name}-demo.js`,
+      name: 'Themur',
+      format: 'iife'
     }
   ],
   plugins: [

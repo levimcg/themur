@@ -13,11 +13,15 @@
     "url": "https://github.com/levimcg/themur/issues"
   },
   "scripts": {
-    "start": "npx rollup --config -w",
+    "start": "npm run dev",
+    "dev": "run-p js:watch serve",
+    "serve": "npx serve demo",
+    "js": "npx rollup --config",
+    "js:watch": "npx rollup --config -w",
+    "js:minify": "uglifyjs dist/themur.min.js -o dist/themur.min.js -m -c --comments /@version/",
     "clean": "rm -rf dist/",
     "build": "npm run clean && npx rollup --config && npm run minify",
-    "deploy": "npx gh-pages -d docs",
-    "minify": "uglifyjs dist/themur.min.js -o dist/themur.min.js -m -c --comments /@version/"
+    "deploy": "npx gh-pages -d docs"
   },
   "author": "Levi McGranahan",
   "license": "MIT",
@@ -30,5 +34,8 @@
     "rollup-plugin-node-resolve": "^4.0.0",
     "serve": "^10.1.1",
     "uglify-js": "^3.5.4"
-  }
+  },
+  "files": [
+    "dist"
+  ]
 }

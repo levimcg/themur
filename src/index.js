@@ -21,25 +21,21 @@ export default class Themur {
     this.themeClass = settings.themeClass;
     this.storageKey = settings.storageKey;
     this.useLocalStorage = settings.useLocalStorage;
-
+    
     // The toggle element (button) is the only required option
     if (!this.toggleElement) {
       console.error('You must provide a toggle element for the switcher');
       return;
     }
 
-    // Check to make sure the use want to use localStorage
-    if (this.useLocalStorage) {
-      // Check to see if the theme is enabled in localStorage
-      this.themeIsEnabled = localStorage.getItem(this.storageKey);
-
-      if (!this.themeIsEnabled) {
-        localStorage.setItem(this.storageKey, 'false');
-
-        this.themeIsEnabled = localStorage.getItem(this.storageKey);
-      }
+    if (!this.useLocalStorage) {
+      this.themeIsEnabled = this.prefersDarkTheme();
     } else {
-      this.themeIsEnabled = 'false';
+      const storageIsSet = localStorage.getItem(this.storageKey);
+      if (!storageIsSet) {
+        localStorage.setItem(this.storageKey, this.prefersDarkTheme());
+      }
+      this.themeIsEnabled = localStorage.getItem(this.storageKey);
     }
 
     this.setUpInitialState();
@@ -56,6 +52,10 @@ export default class Themur {
     this
       .toggleElement
       .addEventListener('click', this.handleClick, false);
+  }
+  
+  prefersDarkTheme() {
+    return window.matchMedia('(prefers-color-scheme: dark)').matches.toString();
   }
 
   setUpInitialState() {
@@ -101,7 +101,7 @@ export default class Themur {
         this.disableTheme();
     } else {
       const isEnabled =
-        this.toggleElement.getAttribute('aria-checked');
+        this.toggleElement.getAttribute('aria-pressed');
 
       isEnabled === 'true' ?
         this.disableTheme() :

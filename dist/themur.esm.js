@@ -26,6 +26,40 @@ function _createClass(Constructor, protoProps, staticProps) {
   return Constructor;
 }
 
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+function _objectSpread(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+    var ownKeys = Object.keys(source);
+
+    if (typeof Object.getOwnPropertySymbols === 'function') {
+      ownKeys = ownKeys.concat(Object.getOwnPropertySymbols(source).filter(function (sym) {
+        return Object.getOwnPropertyDescriptor(source, sym).enumerable;
+      }));
+    }
+
+    ownKeys.forEach(function (key) {
+      _defineProperty(target, key, source[key]);
+    });
+  }
+
+  return target;
+}
+
 var Themur =
 /*#__PURE__*/
 function () {
@@ -43,7 +77,8 @@ function () {
      * Merge the defaults and any user settings
      */
 
-    var settings = Object.assign({}, defaults, options);
+    var settings = _objectSpread({}, defaults, options);
+
     this.containerElement = settings.containerElement;
     this.toggleElement = settings.toggleElement;
     this.themeClass = settings.themeClass;
@@ -53,19 +88,18 @@ function () {
     if (!this.toggleElement) {
       console.error('You must provide a toggle element for the switcher');
       return;
-    } // Check to make sure the use want to use localStorage
+    }
 
-
-    if (this.useLocalStorage) {
-      // Check to see if the theme is enabled in localStorage
-      this.themeIsEnabled = localStorage.getItem(this.storageKey);
-
-      if (!this.themeIsEnabled) {
-        localStorage.setItem(this.storageKey, 'false');
-        this.themeIsEnabled = localStorage.getItem(this.storageKey);
-      }
+    if (!this.useLocalStorage) {
+      this.themeIsEnabled = this.prefersDarkTheme();
     } else {
-      this.themeIsEnabled = 'false';
+      var storageIsSet = localStorage.getItem(this.storageKey);
+
+      if (!storageIsSet) {
+        localStorage.setItem(this.storageKey, this.prefersDarkTheme());
+      }
+
+      this.themeIsEnabled = localStorage.getItem(this.storageKey);
     }
 
     this.setUpInitialState();
@@ -82,11 +116,15 @@ function () {
   }
 
   _createClass(Themur, [{
+    key: "prefersDarkTheme",
+    value: function prefersDarkTheme() {
+      return window.matchMedia('(prefers-color-scheme: dark)').matches.toString();
+    }
+  }, {
     key: "setUpInitialState",
     value: function setUpInitialState() {
       // Add ARIA semantics and role to toggle element if JS is available
       this.toggleElement.setAttribute('aria-pressed', this.themeIsEnabled);
-      console.log('remove');
       this.toggleElement.removeAttribute('hidden');
 
       if (this.themeIsEnabled === 'true') {
@@ -127,7 +165,7 @@ function () {
       if (this.useLocalStorage) {
         localStorage.getItem(this.storageKey) === 'false' ? this.enableTheme() : this.disableTheme();
       } else {
-        var isEnabled = this.toggleElement.getAttribute('aria-checked');
+        var isEnabled = this.toggleElement.getAttribute('aria-pressed');
         isEnabled === 'true' ? this.disableTheme() : this.enableTheme();
       }
     }
