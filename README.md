@@ -58,6 +58,9 @@ switcher.enableTheme();
 switcher.disableTheme(); 
 ```
 
+### User preferred theme settings
+Themur will first check for a users theme OS preferences by using `window.matchMedia()`. If the `useLocalStorage` Themur option is set to `true` it will store the user's preference in `localStorage`. This means that if the user has their OS dark theme enabled it will set the storage key to `"true"`.
+
 ### About using localStorage
 Themur comes with an configuration option that allows you to use the browser's [localStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) API to persist theme selection. When the `useLocalStorage` option is set to `true` Themur will save users' theme choice in `localStorage` persisting their theme choice for your site from page view to page view, and even visit to visit.
 
