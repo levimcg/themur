@@ -1,5 +1,5 @@
 /*!
- * themur - @version 0.2.1
+ * themur - @version 0.3.1
  * Copyright (C) 2019 Levi McGranahan
  * MIT License
  */ 

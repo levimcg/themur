@@ -1,6 +1,6 @@
 {
   "name": "themur",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "A vanilla JavaScript theme switcher",
   "main": "dist/themur.umd.js",
   "module": "dist/themur.esm.js",
@@ -21,7 +21,8 @@
     "js:minify": "uglifyjs dist/themur.min.js -o dist/themur.min.js -m -c --comments /@version/",
     "clean": "rm -rf dist/",
     "build": "npm run clean && npx rollup --config && npm run js:minify",
-    "deploy": "npx gh-pages -d demo"
+    "deploy": "npx gh-pages -d demo",
+    "prepublishOnly": "npm run build"
   },
   "author": "Levi McGranahan",
   "license": "MIT",
